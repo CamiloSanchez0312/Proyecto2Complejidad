@@ -10,7 +10,7 @@
 
 ## Ejecución:
 para esto debe tener instalado el software Minizinc
-'''
+```
 git clone https://github.com/CamiloSanchez0312/Proyecto2Complejidad
 cd Proyecto2Complejidad
 cd PlantaGUIFuentes
@@ -21,4 +21,4 @@ source env/bin/activate
 pip3 install flask
 export FLASK_APP=server.py
 flask run
-'''
+```
