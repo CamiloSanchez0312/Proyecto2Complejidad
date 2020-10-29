@@ -4,6 +4,7 @@ from flask import Flask, jsonify, make_response,request
 
 app = Flask(__name__)
 
+rutaMinizinc = '/home/juancamilo/Cursos/2020-2/Complejidad/MiniZincIDE-2.5.0-bundle-linux-x86_64/bin/minizinc'
 
 @app.route('/', methods=['POST'])
 def makeDatos():
@@ -20,7 +21,7 @@ def makeDatos():
     f = open ('datos.dzn','w')
     f.write(data.rstrip())
     f.close()
-    solns = subprocess.check_output(['/home/juancamilo/Cursos/2020-2/Complejidad/MiniZincIDE-2.5.0-bundle-linux-x86_64/bin/minizinc','--solver','COIN-BC','../PlantaEnergia.mzn','datos.dzn']).decode()
+    solns = subprocess.check_output([rutaMinizinc,'--solver','COIN-BC','../PlantaEnergia.mzn','datos.dzn']).decode()
     pos = solns.find('\n----------\n==========\n')
     if pos == -1:
         return jsonify(response='Unsatisfiable')
