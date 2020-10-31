@@ -17,6 +17,7 @@ cd PlantaGUIFuentes
 Debe ingresar al archivo server.py y modificar la variable rutaMinizinc por la ruta donde tiene instalado el Minizinc en su computador
 Ej: rutaMinizinc= '.../MiniZincIDE-2.5.0-bundle-linux-x86_64/bin/minizinc'
 python3 -m venv env
+apt install python-pip
 source env/bin/activate
 pip3 install flask
 export FLASK_APP=server.py
