@@ -1,10 +1,12 @@
 import subprocess
 import json as js
 from flask import Flask, jsonify, make_response,request
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-
-rutaMinizinc = '/home/juancamilo/Cursos/2020-2/Complejidad/MiniZincIDE-2.5.0-bundle-linux-x86_64/bin/minizinc'
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={r'/*': {'origins': '*'}})
+rutaMinizinc = '/home/sanrop/Downloads/MiniZincIDE-2.5.1-bundle-linux-x86_64/bin/minizinc'
 
 @app.route('/', methods=['POST'])
 def makeDatos():
